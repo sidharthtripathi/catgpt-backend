@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors')
 const server = express();
-const url = 'localhost'
-const port = 3000
+// const url = 'localhost'
+const port = process.env.PORT || 3000
 server.use(cors())
 server.get('/resp',(req,res)=>{
 let data = randomMeow();
@@ -12,8 +12,8 @@ res.json({
 })
 
 })
-server.listen(port,url,()=>{
-    console.log(`server is up at ${url} on port:${port}`)
+server.listen(port,()=>{
+    console.log(`server is up,on port:${port}`)
 })
 
 function randomMeow(){
